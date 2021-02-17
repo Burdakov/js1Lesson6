@@ -1,0 +1,49 @@
+@color-green: #126031;
+@color-grey: #F4F4F4;
+@darkgrey: #2C2C2C;
+@width: 500px;
+
+* {
+    font-family: Montserrat, sans-serif;
+}
+
+.contain {
+    max-width: @width;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 1px solid beige;
+
+    &-good {
+        width: @width;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        &__descr {
+            background-color: @color-grey;
+            width: @width*0.8;
+            color: @darkgrey;
+            margin: 5px;
+        }
+
+        &__button {
+            background-color: @color-green;
+            color: @color-grey;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 5px;
+
+            &:hover {
+                background-color: lighten(@color-green, 10%);
+            }
+        }
+
+    }
+
+    &-bin {
+        color: red;
+    }
+}

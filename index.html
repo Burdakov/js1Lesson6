@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>bin</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class=contain>
+        <div class=contain-good>
+
+        </div>
+        <div class=contain-bin id=bin> bin </div>
+    </div>
+
+    <script>
+        //goods database
+        //name price instock
+        let goodarr = [
+            ['fig', 100, 50],
+            ['orange', 80, 20],
+            ['apple', 3, 5],
+            ['pear', 40, 14],
+        ];
+
+        //goods objects
+        let i = 0
+        while (i <= (goodarr.length - 1)) {
+            const good = {
+                name: goodarr[i][0],
+                price: goodarr[i][1],
+                instock: goodarr[i][2],
+            }
+
+            let contgood = document.getElementsByClassName('contain-good');
+
+            const butbuy = document.createElement('butbuy');
+            butbuy.className = 'contain-good__button';
+            butbuy.innerHTML = 'buy' + i;
+
+
+            const descr = document.createElement('descr');
+            descr.className = 'contain-good__descr';
+            descr.innerHTML = `
+                ${good.name} for ${good.price} USD in stock ${good.instock} pcs`;
+
+            //event treatment
+            butbuy.addEventListener('click', listener.bind(this, i))
+
+            contgood[0].append(descr);
+            contgood[0].append(butbuy);
+
+
+            i = i + 1;
+        }
+
+        let binarr = [];
+
+        function listener(index) {
+            binarr.push(index);
+            alert(binarr);
+            let binel = document.querySelector('.contain-bin').innerHTML = `bin: ${binarr}`;
+        }
+
+        
+
+    </script>
+
+</body>
+
+</html>
